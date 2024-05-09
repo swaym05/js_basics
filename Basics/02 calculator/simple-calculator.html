@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style>
+        .row{
+            max-width: 600px;
+            margin: auto;
+            
+        }
+        .btn{
+            width: 100%;
+        }
+        @media screen and (max-width:425px) {
+            .row{
+            max-width: 100%;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 style="text-align: center; margin-top: 20px;">Calculator</h1>
+                <div class="card my-4 shadow">
+                    <div class="card-body">
+                        <input id="calc-display" readonly class="text-end form-control-lg form-control" type="text">
+                        <div class="row" style="width: 100%;">
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light">(</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light">)</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="%">%</button>
+                            </div>
+                             <div class="col-3 mt-2">
+                                <button class="btn btn-secondary" value="C">C</button>
+                            </div>
+
+                            
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="7">7</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="8">8</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="9">9</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="/">/</button>
+                            </div>
+
+
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="4">4</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="5">5</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="6">6</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="*">x</button>
+                            </div>
+
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light">1</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="2">2</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="3">3</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="-">-</button>
+                            </div>
+
+
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="0">0</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value=".">.</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-primary" onclick="display.value = eval(display.value)">=</button>
+                            </div>
+                            <div class="col-3 mt-2">
+                                <button class="btn btn-light" value="+">+</button>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const display = document.getElementById("calc-display");
+        let btn = document.querySelectorAll(".btn");
+
+        let string = "";
+        Array.from(btn).forEach((button) => {
+            button.addEventListener("click",(e)=>{
+                if(e.target.innerText == "x"){
+                    e.target.innerText = "*";
+                }
+                if(e.target.innerText == "="){
+                    string = eval(string);
+                    display.value = string;                    
+                }
+                else if(e.target.innerText == "C"){
+                    string = "";
+                    display.value = string;
+                }
+                else{
+                    console.log(e.target);
+                    string = string + e.target.innerText;
+                    display.value = string;
+                }     
+            });
+        });
+    </script>
+</body>
+</html>

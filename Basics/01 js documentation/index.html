@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <header>JavaScript Documentation</header>
+        <div class="scroll">
+            <ul id="nav">
+                <li ><a class="nav-link" href="#introduction">Introduction</a></li>
+                <li ><a class="nav-link" href="#hello_world">Hello World</a></li>
+                <li ><a class="nav-link" href="#variables">Variables</a></li>
+                <li ><a class="nav-link" href="#declaring_variables">Declaring Variables</a></li>
+                <li ><a class="nav-link" href="#variable_scope">Variable Scope</a></li>
+                <li ><a class="nav-link" href="#global_variables">Global Variables</a></li>
+                <li ><a class="nav-link" href="#Constants">Constants</a></li>
+                <li ><a class="nav-link" href="#data_types">Data types</a></li>
+                <li ><a class="nav-link" href="#while_statement">while statement</a></li>
+                <li ><a class="nav-link" href="#function_declaration">Function Declaration</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="introduction">
+            <header>Introduction</header>
+            <p>
+                JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight
+                language. Inside a host environment (for example, a web browser), JavaScript can be connected to the
+                objects of its environment to provide programmatic control over them.
+            </p>
+            <p>
+                JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of
+                language elements such as operators, control structures, and statements. Core JavaScript can be extended
+                for a variety of purposes by supplementing it with additional objects; for example:
+            </p>
+            <ul>
+                <li>Client-side JavaScript extends the core language by supplying objects to control a browser and its
+                    Document Object Model (DOM). For example, client-side extensions allow an application to place
+                    elements on an HTML form and respond to user events such as mouse clicks, form input, and page
+                    navigation.</li>
+                <li style="padding: 0;">Server-side JavaScript extends the core language by supplying objects relevant to running JavaScript
+                    on a server. For example, server-side extensions allow an application to communicate with a
+                    database, provide continuity of information from one invocation to another of the application, or
+                    perform file manipulations on a server.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="hello_world">
+            <header>Hello World</header>
+            <p>To get started with writing JavaScript, open the Scratchpad and write your first "Hello world" JavaScript
+                code:</p>
+            <p class="code">
+                <code>
+                    function greetMe(yourName) { alert("Hello " + yourName); } <br>    greetMe("World");
+                </code>
+            </p>
+            <p>Select the code in the pad and hit Ctrl+R to watch it unfold in your browser!</p>
+        </section>
+
+        <section class="main-section" id="variables">
+            <header>Variables</header>
+            <p>
+                You use variables as symbolic names for values in your application. The names of variables, called
+                identifiers, conform to certain rules.
+            </p>
+            <p>
+                A JavaScript identifier must start with a letter, underscore (_), or dollar sign ($); subsequent
+                characters can also be digits (0-9). Because JavaScript is case sensitive, letters include the
+                characters "A" through "Z" (uppercase) and the characters "a" through "z" (lowercase).
+            </p>
+            <p>
+                You can use ISO 8859-1 or Unicode letters such as å and ü in identifiers. You can also use the Unicode
+                escape sequences as characters in identifiers. Some examples of legal names are Number_hits, temp99, and
+                _name.
+            </p>
+        </section>
+
+        <section class="main-section" id="declaring_variables">
+            <header>Declaring variables</header>
+            <p>You can declare a variable in three ways:</p>
+            <p>With the keyword var. For example,</p>
+            <p class="code">
+                <code>
+                    var x = 42.
+                </code>
+            </p>
+            <p>
+                This syntax can be used to declare both local and global variables.
+            </p>
+        </section>
+
+        <section class="main-section" id="variable_scope">
+            <header>Variable Scope</header>
+            <p>
+                When you declare a variable outside of any function, it is called a global variable, because it is
+                available to any other code in the current document. When you declare a variable within a function, it
+                is called a local variable, because it is available only within that function.
+            </p>
+            <p>
+                JavaScript before ECMAScript 2015 does not have block statement scope; rather, a variable declared
+                within a block is local to the function (or global scope) that the block resides within. For example the
+                following code will log 5, because the scope of x is the function (or global context) within which x is
+                declared, not the block, which in this case is an if statement.
+            </p>
+            <p class="code">
+                <code>
+                    if (true) { var x = 5; } console.log(x); // 5
+                </code>
+            </p>
+            <p>
+                This behavior changes, when using the let declaration introduced in ECMAScript 2015.
+            </p>
+            <p class="code">
+                <code>
+                    if (true) { let y = 5; } console.log(y); // ReferenceError: y is <br>not defined
+                </code>
+            </p>
+        </section>
+
+        <section class="main-section" id="global_variables">
+            <header>Global Variables</header>
+            <p>
+                Global variables are in fact properties of the global object. In web pages the global object is window, so you can set and access global variables using the window.variable syntax.
+            </p>
+            <p>
+                Consequently, you can access global variables declared in one window or frame from another window or frame by specifying the window or frame name. For example, if a variable called phoneNumber is declared in a document, you can refer to this variable from an iframe as parent.phoneNumber.
+            </p>
+        </section>
+        <section class="main-section" id="Constants">
+            <header>Constants</header>
+            <p>
+                You can create a read-only, named constant with the const keyword. The syntax of a constant identifier is the same as for a variable identifier: it must start with a letter, underscore or dollar sign and can contain alphabetic, numeric, or underscore characters.
+            </p>
+            <p class="code">
+                <code>
+                    const PI = 3.14;
+                </code>
+            </p>
+            <p>
+                A constant cannot change value through assignment or be re-declared while the script is running. It has to be initialized to a value.
+            </p>
+            <p>
+                The scope rules for constants are the same as those for let block scope variables. If the const keyword is omitted, the identifier is assumed to represent a variable.
+            </p>
+            <p>
+                You cannot declare a constant with the same name as a function or variable in the same scope. For example:
+            </p>
+            <p class="code">
+                <code>
+                    // THIS WILL CAUSE AN ERROR function f() {}; const f = 5; // THIS <br>WILL CAUSE AN ERROR ALSO function f() { const g = 5; var g; <br>//statements }
+                </code>
+            </p>
+            <p>
+                However, object attributes are not protected, so the following statement is executed without problems.
+            </p>
+            <p class="code">
+                <code>
+                    const MY_OBJECT = {"key": "value"}; MY_OBJECT.key =<br> "otherValue";
+                </code>
+            </p>
+        </section>
+        <section class="main-section" id="data_types">
+            <header>Data types</header>
+            <p>The latest ECMAScript standard defines seven data types:</p>
+            <ul>
+                <li>
+                    Six data types that are primitives:
+                    <ul>
+                        <li>Boolean. true and false.</li>
+                        <li>null. A special keyword denoting a null value. Because JavaScript is case-sensitive, null is not the same as Null, NULL, or any other variant.</li>
+                        <li>undefined. A top-level property whose value is undefined.</li>
+                        <li>Number. 42 or 3.14159.</li>
+                        <li>String. "Howdy"</li>
+                        <li>Symbol (new in ECMAScript 2015). A data type whose instances are unique and immutable.</li>
+        
+                    </ul>
+                </li>
+                <li>
+                    and Object
+                </li>
+                <p>
+                    Although these data types are a relatively small amount, they enable you to perform useful functions with your applications. Objects and functions are the other fundamental elements in the language. You can think of objects as named containers for values, and functions as procedures that your application can perform.
+                </p>
+            </ul>
+        </section>
+
+        <section class="main-section" id="while_statement">
+            <header>while statement</header>
+            <p>
+                A while statement executes its statements as long as a specified condition evaluates to true. A while statement looks as follows:
+            </p>
+            <p class="code">
+                <code>
+                    while (condition) statement
+                </code>
+            </p>
+        </section>
+
+        <section class="main-section" id="function_declaration">
+            <header>Function Declaration</header>
+            <p>
+                A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:
+            </p>
+            <ul>
+                <li>
+                    The name of the function
+                </li>
+                <li>
+                    A list of arguments to the function, enclosed in parentheses and separated by commas.
+                </li>
+                <li>
+                    The JavaScript statements that define the function, enclosed in curly brackets, { }.
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>
+
